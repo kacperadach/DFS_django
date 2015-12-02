@@ -22,5 +22,5 @@ class WeekPerformance(models.Model):
 
     player = models.ForeignKey(Player)
 
-    week = models.IntegerField(blank=False)
-    points = models.IntegerField(blank=False)
+    week = models.IntegerField(blank=True)
+    points = models.IntegerField(blank=True)
