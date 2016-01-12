@@ -24,3 +24,6 @@ class WeekPerformance(models.Model):
 
     week = models.IntegerField(blank=True)
     points = models.IntegerField(blank=True)
+
+    class Meta(object):
+        ordering = ['week']
