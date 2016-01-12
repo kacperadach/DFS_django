@@ -20,10 +20,13 @@ class Player(models.Model):
 
 class WeekPerformance(models.Model):
 
-    player = models.ForeignKey(Player)
+    player = models.ForeignKey(Player, related_name='WeekPerformances')
 
     week = models.IntegerField(blank=True)
     points = models.IntegerField(blank=True)
 
     class Meta(object):
         ordering = ['week']
+
+    def __unicode__(self):
+        return '{}: {}'.format(self.week, self.points)
