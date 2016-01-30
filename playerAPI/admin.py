@@ -9,7 +9,7 @@ class WeekPerformanceInline(admin.TabularInline):
 
 
 class PlayerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'position', 'team')
+    list_display = ('name', 'position', 'team', 'total_points')
     inlines = [
         WeekPerformanceInline,
     ]

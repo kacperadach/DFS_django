@@ -17,6 +17,7 @@ class Player(models.Model):
         max_length=100,
         blank=False,
     )
+    total_points = models.IntegerField(default=0)
 
 class WeekPerformance(models.Model):
 

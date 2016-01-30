@@ -8,8 +8,12 @@ from constants import base_url
 from PyFL.nfl_stats import process_as_dk
 
 
-def get_player_points(maxweek=1):
+def get_all_player_data(maxweek):
+    get_player_points(maxweek)
+    fill_player_week_performances(maxweek)
+    fill_total_points()
 
+def get_player_points(maxweek=1):
     week = 1
     while(1):
         for position in POSITION_CHOICES:
@@ -36,9 +40,8 @@ def get_player_points(maxweek=1):
         week += 1
         if week > maxweek:
             break
-                    
-def fill_player_week_performances(maxweek=1):
 
+def fill_player_week_performances(maxweek=1):
     players = Player.objects.all()
     for player in players:
         for x in range(maxweek):
@@ -46,3 +49,14 @@ def fill_player_week_performances(maxweek=1):
             wp = WeekPerformance.objects.filter(player=player, week=week)
             if not wp:
                 WeekPerformance.objects.create(player=player, week=week, points=-1)
+
+def fill_total_points():
+    players = Player.objects.all()
+    for player in players:
+        wp = WeekPerformance.objects.filter(player=player)
+        sum = 0
+        for p in wp:
+            sum += p.points
+        player.total_points = sum
+        player.save()
+
