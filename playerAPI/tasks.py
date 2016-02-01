@@ -48,7 +48,7 @@ def fill_player_week_performances(maxweek=1):
             week = x+1
             wp = WeekPerformance.objects.filter(player=player, week=week)
             if not wp:
-                WeekPerformance.objects.create(player=player, week=week, points=-1)
+                WeekPerformance.objects.create(player=player, week=week, points=-99)
 
 def fill_total_points():
     players = Player.objects.all()
