@@ -18,6 +18,8 @@ class Player(models.Model):
         blank=False,
     )
     total_points = models.IntegerField(default=0)
+    salary = models.IntegerField(default=0)
+
 
 class WeekPerformance(models.Model):
 

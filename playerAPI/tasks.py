@@ -60,3 +60,11 @@ def fill_total_points():
         player.total_points = sum
         player.save()
 
+def get_player_salaries():
+    # temporarily making salaries 0 to work on frontend
+    players = Player.objects.all()
+    for player in players:
+        player.salary = 0
+        player.save()
+
+
