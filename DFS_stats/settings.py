@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_db',
         'USER': 'root',
-        'PASSWORD': 'wavewig2'
+        'PASSWORD': ''
     }
 }
 
