@@ -65,6 +65,10 @@ def get_player_salaries():
     players = Player.objects.all()
     for player in players:
         player.salary = 0
+        player.opp = 'N/A'
+        player.fppg = 0
         player.save()
+
+
 
 

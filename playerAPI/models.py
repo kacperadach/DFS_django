@@ -19,6 +19,8 @@ class Player(models.Model):
     )
     total_points = models.IntegerField(default=0)
     salary = models.IntegerField(default=0)
+    fppg = models.IntegerField(default=0)
+    opp = models.CharField(default='N/A', max_length= 100)
 
 
 class WeekPerformance(models.Model):
